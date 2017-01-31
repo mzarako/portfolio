@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 plugins = [];
-plugins.push(new webpack.optimize.UglifyJsPlugin());
+// plugins.push(new webpack.optimize.UglifyJsPlugin());
 // plugins.push(new webpack.DefinePlugin({
 //     'process.env': {
 //       'NODE_ENV': JSON.stringify('production')
@@ -20,10 +20,14 @@ module.exports = {
   module: {
     loaders: [{
       exclude: /node_modules/,
-      loader: 'babel',
+      loader: 'babel', 
       query: {
         presets: ['react', 'es2015', 'stage-1']
-      }
+        }
+    },
+    {
+      loader: 'file',
+      test: /.png$/
     }]
   },
   resolve: {
